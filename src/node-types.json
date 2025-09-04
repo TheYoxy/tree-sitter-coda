@@ -1,0 +1,1477 @@
+[
+  {
+    "type": "account_holder_id",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "account_number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "account_structure",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "alnum16",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "alnum4",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "amount",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bic",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "communication",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "communication_long",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "communication_short",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "communication_small",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "customer_reference",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "date",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "detail_number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "duplication_flag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "file_reference",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "header_record",
+    "named": true,
+    "fields": {
+      "account_holder_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "account_holder_id",
+            "named": true
+          }
+        ]
+      },
+      "addressee_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "application_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "application_code",
+            "named": true
+          }
+        ]
+      },
+      "bic": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bic",
+            "named": true
+          }
+        ]
+      },
+      "blank": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "creation_date": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "date",
+            "named": true
+          }
+        ]
+      },
+      "duplication_flag": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "duplication_flag",
+            "named": true
+          }
+        ]
+      },
+      "file_reference_or_blank": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "file_reference",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "related_reference_or_blank": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alnum16",
+            "named": true
+          }
+        ]
+      },
+      "separate_application_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "numeric5",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number3",
+            "named": true
+          }
+        ]
+      },
+      "transaction_reference": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alnum16",
+            "named": true
+          }
+        ]
+      },
+      "version_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "version_code",
+            "named": true
+          }
+        ]
+      },
+      "zeros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "zeros",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "information_record_part1",
+    "named": true,
+    "fields": {
+      "blank": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "communication": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "communication",
+            "named": true
+          }
+        ]
+      },
+      "detail_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "detail_number",
+            "named": true
+          }
+        ]
+      },
+      "information_subtype": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "information_subtype",
+            "named": true
+          }
+        ]
+      },
+      "next_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_code",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "reference_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "reference_number",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number4",
+            "named": true
+          }
+        ]
+      },
+      "structured_communication": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "structured_communication",
+            "named": true
+          }
+        ]
+      },
+      "transaction_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_code",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "information_record_part2",
+    "named": true,
+    "fields": {
+      "blank": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "communication": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "communication_long",
+            "named": true
+          }
+        ]
+      },
+      "detail_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "detail_number",
+            "named": true
+          }
+        ]
+      },
+      "information_subtype": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "information_subtype",
+            "named": true
+          }
+        ]
+      },
+      "next_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_code",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number4",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "information_record_part3",
+    "named": true,
+    "fields": {
+      "blank": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "communication": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "communication_long",
+            "named": true
+          }
+        ]
+      },
+      "detail_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "detail_number",
+            "named": true
+          }
+        ]
+      },
+      "information_subtype": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "information_subtype",
+            "named": true
+          }
+        ]
+      },
+      "next_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_code",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number4",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "message",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "message_record",
+    "named": true,
+    "fields": {
+      "blank": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "detail_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "detail_number",
+            "named": true
+          }
+        ]
+      },
+      "message": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "message",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number4",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "new_balance_record",
+    "named": true,
+    "fields": {
+      "account_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "account_number",
+            "named": true
+          }
+        ]
+      },
+      "blank": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "new_balance": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "amount",
+            "named": true
+          }
+        ]
+      },
+      "new_balance_date": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "date",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number3",
+            "named": true
+          }
+        ]
+      },
+      "sign": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "sign",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "next_code",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "next_data_record",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "next_file",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "numeric1",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "numeric15",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "numeric3",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "numeric5",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "numeric6",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "numeric8",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "old_balance_record",
+    "named": true,
+    "fields": {
+      "account_description": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "customer_reference",
+            "named": true
+          }
+        ]
+      },
+      "account_holder_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "account_number_and_currency": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "account_number",
+            "named": true
+          }
+        ]
+      },
+      "account_structure": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "account_structure",
+            "named": true
+          }
+        ]
+      },
+      "amount": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "amount",
+            "named": true
+          }
+        ]
+      },
+      "coded_statement_sequence_or_zeros": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number3",
+            "named": true
+          }
+        ]
+      },
+      "date": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "date",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number3",
+            "named": true
+          }
+        ]
+      },
+      "sign": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "sign",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "record",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "header_record",
+          "named": true
+        },
+        {
+          "type": "information_record_part1",
+          "named": true
+        },
+        {
+          "type": "information_record_part2",
+          "named": true
+        },
+        {
+          "type": "information_record_part3",
+          "named": true
+        },
+        {
+          "type": "message_record",
+          "named": true
+        },
+        {
+          "type": "new_balance_record",
+          "named": true
+        },
+        {
+          "type": "old_balance_record",
+          "named": true
+        },
+        {
+          "type": "trailer_record",
+          "named": true
+        },
+        {
+          "type": "transaction_record_part1",
+          "named": true
+        },
+        {
+          "type": "transaction_record_part2",
+          "named": true
+        },
+        {
+          "type": "transaction_record_part3",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "reference_number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "seq_number3",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "seq_number4",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sign",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "record",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "structured_communication",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "structured_flag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "trailer_record",
+    "named": true,
+    "fields": {
+      "blank": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "credit_movements": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "numeric15",
+            "named": true
+          }
+        ]
+      },
+      "debit_movements": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "numeric15",
+            "named": true
+          }
+        ]
+      },
+      "next_file": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_file",
+            "named": true
+          }
+        ]
+      },
+      "number_of_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "numeric6",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "transaction_code",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "transaction_record_part1",
+    "named": true,
+    "fields": {
+      "account_seq": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "numeric3",
+            "named": true
+          }
+        ]
+      },
+      "amount": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "amount",
+            "named": true
+          }
+        ]
+      },
+      "blank": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "communication": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "communication_short",
+            "named": true
+          }
+        ]
+      },
+      "communication_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "structured_flag",
+            "named": true
+          }
+        ]
+      },
+      "detail_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "detail_number",
+            "named": true
+          }
+        ]
+      },
+      "entry_date": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "date",
+            "named": true
+          }
+        ]
+      },
+      "globalisation_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "numeric1",
+            "named": true
+          }
+        ]
+      },
+      "movement_sign": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "sign",
+            "named": true
+          }
+        ]
+      },
+      "next_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_code",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "reference_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "reference_number",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number4",
+            "named": true
+          }
+        ]
+      },
+      "transaction_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "numeric8",
+            "named": true
+          }
+        ]
+      },
+      "transaction_subtype": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_subtype",
+            "named": true
+          }
+        ]
+      },
+      "value_date": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "date",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "transaction_record_part2",
+    "named": true,
+    "fields": {
+      "bic_counterparty": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bic",
+            "named": true
+          }
+        ]
+      },
+      "blank": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "category_purpose": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alnum4",
+            "named": true
+          }
+        ]
+      },
+      "communication": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "communication_short",
+            "named": true
+          }
+        ]
+      },
+      "customer_reference": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "customer_reference",
+            "named": true
+          }
+        ]
+      },
+      "detail_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "detail_number",
+            "named": true
+          }
+        ]
+      },
+      "iso_reason": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alnum4",
+            "named": true
+          }
+        ]
+      },
+      "next_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_code",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "purpose": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alnum4",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number4",
+            "named": true
+          }
+        ]
+      },
+      "transaction_subtype": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_subtype",
+            "named": true
+          }
+        ]
+      },
+      "transaction_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_type",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "transaction_record_part3",
+    "named": true,
+    "fields": {
+      "blank": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "blank",
+            "named": true
+          }
+        ]
+      },
+      "communication": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "communication_small",
+            "named": true
+          }
+        ]
+      },
+      "counter_party_account": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "account_number",
+            "named": true
+          }
+        ]
+      },
+      "counter_party_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "customer_reference",
+            "named": true
+          }
+        ]
+      },
+      "detail_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "detail_number",
+            "named": true
+          }
+        ]
+      },
+      "next_code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_code",
+            "named": true
+          }
+        ]
+      },
+      "next_data_record": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "next_data_record",
+            "named": true
+          }
+        ]
+      },
+      "record_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "record_type",
+            "named": true
+          }
+        ]
+      },
+      "seq_number": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "seq_number4",
+            "named": true
+          }
+        ]
+      },
+      "transaction_subtype": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_subtype",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "transaction_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\n",
+    "named": false,
+    "extra": true
+  },
+  {
+    "type": "application_code",
+    "named": true
+  },
+  {
+    "type": "blank",
+    "named": true
+  },
+  {
+    "type": "information_subtype",
+    "named": true
+  },
+  {
+    "type": "record_type",
+    "named": true
+  },
+  {
+    "type": "transaction_subtype",
+    "named": true
+  },
+  {
+    "type": "version_code",
+    "named": true
+  },
+  {
+    "type": "zeros",
+    "named": true
+  }
+]

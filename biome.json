@@ -1,0 +1,85 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              {
+                "type": true
+              },
+              ":NODE:",
+              ":BUN:",
+              ":PACKAGE:",
+              ":PACKAGE_WITH_PROTOCOL:",
+              ":PATH:",
+              ":ALIAS:"
+            ]
+          }
+        },
+        "useSortedAttributes": "on",
+        "useSortedKeys": "on",
+        "useSortedProperties": "on"
+      }
+    }
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!**/build",
+      "!**/.zed",
+      "!**/.idea",
+      "!**/.vscode",
+      "!**/k6.js",
+      "!**/coverage",
+      "!**/dist",
+      "!**/playwright-report",
+      "!**/test-results"
+    ]
+  },
+  "formatter": {
+    "attributePosition": "auto",
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "asNeeded",
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    }
+  },
+  "linter": {
+    "enabled": false
+  },
+  "overrides": [
+    {
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      },
+      "includes": ["**/tsconfig.json", "**/tsconfig.*.json", "**/package.json"]
+    }
+  ],
+  "vcs": {
+    "clientKind": "git",
+    "defaultBranch": "master",
+    "enabled": true,
+    "useIgnoreFile": true
+  }
+}

@@ -1,0 +1,1761 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "coda",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "record"
+      }
+    },
+    "record": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "header_record"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "old_balance_record"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "transaction_record_part1"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "transaction_record_part2"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "transaction_record_part3"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "information_record_part1"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "information_record_part2"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "information_record_part3"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "message_record"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "new_balance_record"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "trailer_record"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "header_record": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "0"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "zeros",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "0000"
+            },
+            "named": true,
+            "value": "zeros"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "creation_date",
+          "content": {
+            "type": "SYMBOL",
+            "name": "date"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number3"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "application_code",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "05"
+            },
+            "named": true,
+            "value": "application_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "duplication_flag",
+          "content": {
+            "type": "SYMBOL",
+            "name": "duplication_flag"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {7}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "file_reference_or_blank",
+          "content": {
+            "type": "SYMBOL",
+            "name": "file_reference"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "addressee_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "bic",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bic"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "account_holder_id",
+          "content": {
+            "type": "SYMBOL",
+            "name": "account_holder_id"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "separate_application_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric5"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "transaction_reference",
+          "content": {
+            "type": "SYMBOL",
+            "name": "alnum16"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "related_reference_or_blank",
+          "content": {
+            "type": "SYMBOL",
+            "name": "alnum16"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {7}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "version_code",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "2"
+            },
+            "named": true,
+            "value": "version_code"
+          }
+        }
+      ]
+    },
+    "old_balance_record": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "1"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "account_structure",
+          "content": {
+            "type": "SYMBOL",
+            "name": "account_structure"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number3"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "account_number_and_currency",
+          "content": {
+            "type": "SYMBOL",
+            "name": "account_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "sign",
+          "content": {
+            "type": "SYMBOL",
+            "name": "sign"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "amount",
+          "content": {
+            "type": "SYMBOL",
+            "name": "amount"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "date",
+          "content": {
+            "type": "SYMBOL",
+            "name": "date"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "account_holder_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "account_description",
+          "content": {
+            "type": "SYMBOL",
+            "name": "customer_reference"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "coded_statement_sequence_or_zeros",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number3"
+          }
+        }
+      ]
+    },
+    "transaction_record_part1": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "2"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "transaction_subtype",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "1"
+            },
+            "named": true,
+            "value": "transaction_subtype"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "detail_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "detail_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "reference_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "reference_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "movement_sign",
+          "content": {
+            "type": "SYMBOL",
+            "name": "sign"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "amount",
+          "content": {
+            "type": "SYMBOL",
+            "name": "amount"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "value_date",
+          "content": {
+            "type": "SYMBOL",
+            "name": "date"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "transaction_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric8"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "communication_type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "structured_flag"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "communication",
+          "content": {
+            "type": "SYMBOL",
+            "name": "communication_short"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "entry_date",
+          "content": {
+            "type": "SYMBOL",
+            "name": "date"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "account_seq",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric3"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "globalisation_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric1"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "transaction_record_part2": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "2"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "transaction_subtype",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "2"
+            },
+            "named": true,
+            "value": "transaction_subtype"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "detail_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "detail_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "communication",
+          "content": {
+            "type": "SYMBOL",
+            "name": "communication_short"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "customer_reference",
+          "content": {
+            "type": "SYMBOL",
+            "name": "customer_reference"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "bic_counterparty",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bic"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {3}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "transaction_type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "transaction_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "iso_reason",
+          "content": {
+            "type": "SYMBOL",
+            "name": "alnum4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "category_purpose",
+          "content": {
+            "type": "SYMBOL",
+            "name": "alnum4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "purpose",
+          "content": {
+            "type": "SYMBOL",
+            "name": "alnum4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "transaction_record_part3": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "2"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "transaction_subtype",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "3"
+            },
+            "named": true,
+            "value": "transaction_subtype"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "detail_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "detail_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "counter_party_account",
+          "content": {
+            "type": "SYMBOL",
+            "name": "account_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "counter_party_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "customer_reference"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "communication",
+          "content": {
+            "type": "SYMBOL",
+            "name": "communication_small"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "information_record_part1": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "3"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "information_subtype",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "1"
+            },
+            "named": true,
+            "value": "information_subtype"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "detail_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "detail_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "reference_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "reference_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "transaction_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "transaction_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "structured_communication",
+          "content": {
+            "type": "SYMBOL",
+            "name": "structured_communication"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "communication",
+          "content": {
+            "type": "SYMBOL",
+            "name": "communication"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {12}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "information_record_part2": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "3"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "information_subtype",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "2"
+            },
+            "named": true,
+            "value": "information_subtype"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "detail_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "detail_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "communication",
+          "content": {
+            "type": "SYMBOL",
+            "name": "communication_long"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {25}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "information_record_part3": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "3"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "information_subtype",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "3"
+            },
+            "named": true,
+            "value": "information_subtype"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "detail_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "detail_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "communication",
+          "content": {
+            "type": "SYMBOL",
+            "name": "communication_long"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_code"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "message_record": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "4"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " "
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number4"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "detail_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "detail_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {22}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "message",
+          "content": {
+            "type": "SYMBOL",
+            "name": "message"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {15}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "new_balance_record": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "8"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "seq_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "seq_number3"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "account_number",
+          "content": {
+            "type": "SYMBOL",
+            "name": "account_number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "sign",
+          "content": {
+            "type": "SYMBOL",
+            "name": "sign"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "new_balance",
+          "content": {
+            "type": "SYMBOL",
+            "name": "amount"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "new_balance_date",
+          "content": {
+            "type": "SYMBOL",
+            "name": "date"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {64}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_data_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_data_record"
+          }
+        }
+      ]
+    },
+    "trailer_record": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "record_type",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "9"
+            },
+            "named": true,
+            "value": "record_type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {15}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "number_of_record",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric6"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "debit_movements",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric15"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "credit_movements",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric15"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "blank",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": " {75}"
+            },
+            "named": true,
+            "value": "blank"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "next_file",
+          "content": {
+            "type": "SYMBOL",
+            "name": "next_file"
+          }
+        }
+      ]
+    },
+    "record_type": {
+      "type": "PREC",
+      "value": -2,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d"
+        }
+      }
+    },
+    "transaction_subtype": {
+      "type": "PREC",
+      "value": -2,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[123]"
+        }
+      }
+    },
+    "information_subtype": {
+      "type": "PREC",
+      "value": -2,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[123]"
+        }
+      }
+    },
+    "application_code": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "05"
+        }
+      }
+    },
+    "version_code": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "2"
+        }
+      }
+    },
+    "zeros": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "0+"
+        }
+      }
+    },
+    "blank": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": " +"
+        }
+      }
+    },
+    "seq_number3": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{3}"
+        }
+      }
+    },
+    "seq_number4": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{4}"
+        }
+      }
+    },
+    "detail_number": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{4}"
+        }
+      }
+    },
+    "duplication_flag": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[D ]"
+        }
+      }
+    },
+    "account_structure": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[0-3]"
+        }
+      }
+    },
+    "sign": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[01]"
+        }
+      }
+    },
+    "structured_flag": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[01]"
+        }
+      }
+    },
+    "numeric1": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d"
+        }
+      }
+    },
+    "numeric3": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{3}"
+        }
+      }
+    },
+    "numeric4": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{4}"
+        }
+      }
+    },
+    "numeric5": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{5}"
+        }
+      }
+    },
+    "numeric6": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{6}"
+        }
+      }
+    },
+    "numeric8": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{8}"
+        }
+      }
+    },
+    "account_holder_id": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{11}"
+        }
+      }
+    },
+    "numeric15": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{15}"
+        }
+      }
+    },
+    "date": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\d{6}"
+      }
+    },
+    "amount": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\d{15}"
+      }
+    },
+    "alnum4": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{4}"
+        }
+      }
+    },
+    "file_reference": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{10}"
+        }
+      }
+    },
+    "alnum16": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{16}"
+        }
+      }
+    },
+    "name": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{26}"
+        }
+      }
+    },
+    "customer_reference": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{35}"
+        }
+      }
+    },
+    "account_number": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{37}"
+        }
+      }
+    },
+    "bic": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[\\w ]{8}(?: {3}|[\\w]{3})"
+        }
+      }
+    },
+    "transaction_type": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[0-5 ]"
+        }
+      }
+    },
+    "next_code": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[01]"
+        }
+      }
+    },
+    "next_data_record": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[01]"
+        }
+      }
+    },
+    "next_file": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[12]"
+        }
+      }
+    },
+    "reference_number": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{21}"
+        }
+      }
+    },
+    "transaction_code": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{8}"
+        }
+      }
+    },
+    "structured_communication": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[01]"
+        }
+      }
+    },
+    "communication_small": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{43}"
+        }
+      }
+    },
+    "communication_short": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{53}"
+        }
+      }
+    },
+    "communication": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{73}"
+        }
+      }
+    },
+    "communication_long": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{90}"
+        }
+      }
+    },
+    "message": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]{80}"
+        }
+      }
+    }
+  },
+  "extras": [
+    {
+      "type": "STRING",
+      "value": "\n"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}
