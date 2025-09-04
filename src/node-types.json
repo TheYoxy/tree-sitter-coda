@@ -726,11 +726,6 @@
     "fields": {}
   },
   {
-    "type": "numeric8",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "old_balance_record",
     "named": true,
     "fields": {
@@ -1006,6 +1001,67 @@
   {
     "type": "transaction_code",
     "named": true,
+    "fields": {
+      "category": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_code_category",
+            "named": true
+          }
+        ]
+      },
+      "family": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_code_family",
+            "named": true
+          }
+        ]
+      },
+      "operation": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_code_operation",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "transaction_code_type",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "transaction_code_category",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "transaction_code_family",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "transaction_code_operation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "transaction_code_type",
+    "named": true,
     "fields": {}
   },
   {
@@ -1157,7 +1213,7 @@
         "required": true,
         "types": [
           {
-            "type": "numeric8",
+            "type": "transaction_code",
             "named": true
           }
         ]

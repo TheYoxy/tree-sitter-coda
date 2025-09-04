@@ -39,6 +39,12 @@
 (account_number) @markup.underline @keyword
 (amount) @number
 
+(transaction_code) @markup.strong @markup.italic
+(transaction_code type: (transaction_code_type) @string.special.symbol)
+(transaction_code family: (transaction_code_family) @string)
+(transaction_code operation: (transaction_code_operation) @string.special)
+(transaction_code category: (transaction_code_category) @constant)
+
 (header_record application_code: (application_code) @parameter)
 (header_record (duplication_flag) @error (#match? @error "D"))
 (header_record account_holder_id: (account_holder_id) @string.special)
@@ -50,7 +56,6 @@
 (old_balance_record account_structure: (account_structure) @parameter)
 (old_balance_record account_description: (customer_reference) @string.special)
 
-(transaction_record_part1 transaction_code: (numeric8) @number)
 (transaction_record_part1 communication_type: (structured_flag) @method)
 (transaction_record_part1 communication_type: (structured_flag) @string.special (#match? @string.special "1"))
 (transaction_record_part1 account_seq: (numeric3) @number)
@@ -64,7 +69,6 @@
 
 (transaction_record_part3 counter_party_name: (customer_reference) @string.special)
 
-(information_record_part1 transaction_code: (transaction_code) @string)
 (information_record_part1 structured_communication: (structured_communication) @method)
 (information_record_part1 structured_communication: (structured_communication) @string.special (#match? @string.special "1"))
 

@@ -415,7 +415,7 @@
           "name": "transaction_code",
           "content": {
             "type": "SYMBOL",
-            "name": "numeric8"
+            "name": "transaction_code"
           }
         },
         {
@@ -1489,17 +1489,6 @@
         }
       }
     },
-    "numeric8": {
-      "type": "PREC",
-      "value": -1,
-      "content": {
-        "type": "TOKEN",
-        "content": {
-          "type": "PATTERN",
-          "value": "\\d{8}"
-        }
-      }
-    },
     "account_holder_id": {
       "type": "PREC",
       "value": -1,
@@ -1668,15 +1657,89 @@
         }
       }
     },
-    "transaction_code": {
+    "transaction_code_type": {
       "type": "PREC",
       "value": -1,
       "content": {
         "type": "TOKEN",
         "content": {
           "type": "PATTERN",
-          "value": "\\d{8}"
+          "value": "\\d{2}"
         }
+      }
+    },
+    "transaction_code_family": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{2}"
+        }
+      }
+    },
+    "transaction_code_operation": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{2}"
+        }
+      }
+    },
+    "transaction_code_category": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d{2}"
+        }
+      }
+    },
+    "transaction_code": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "transaction_code_type"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "family",
+            "content": {
+              "type": "SYMBOL",
+              "name": "transaction_code_family"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "operation",
+            "content": {
+              "type": "SYMBOL",
+              "name": "transaction_code_operation"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "category",
+            "content": {
+              "type": "SYMBOL",
+              "name": "transaction_code_category"
+            }
+          }
+        ]
       }
     },
     "structured_communication": {

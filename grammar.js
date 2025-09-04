@@ -77,7 +77,7 @@ module.exports = grammar({
         field('movement_sign', $.sign),
         field('amount', $.amount),
         field('value_date', $.date),
-        field('transaction_code', $.numeric8),
+        field('transaction_code', $.transaction_code),
         field('communication_type', $.structured_flag),
         field('communication', $.communication_short),
         field('entry_date', $.date),
@@ -216,7 +216,6 @@ module.exports = grammar({
     numeric4: _ => prec(-1, token(/\d{4}/)),
     numeric5: _ => prec(-1, token(/\d{5}/)),
     numeric6: _ => prec(-1, token(/\d{6}/)),
-    numeric8: _ => prec(-1, token(/\d{8}/)),
     account_holder_id: _ => prec(-1, token(/\d{11}/)),
     numeric15: _ => prec(-1, token(/\d{15}/)),
 
@@ -241,7 +240,22 @@ module.exports = grammar({
     next_data_record: _ => prec(-1, token(/[01]/)),
     next_file: _ => prec(-1, token(/[12]/)),
     reference_number: _ => prec(-1, token(/[^\n]{21}/)),
-    transaction_code: _ => prec(-1, token(/\d{8}/)), // Later on split the transaction code
+
+    transaction_code_type: _ => prec(-1, token(/\d{2}/)),
+    transaction_code_family: _ => prec(-1, token(/\d{2}/)),
+    transaction_code_operation: _ => prec(-1, token(/\d{2}/)),
+    transaction_code_category: _ => prec(-1, token(/\d{2}/)),
+    transaction_code: $ =>
+      prec(
+        -1,
+        seq(
+          field('type', $.transaction_code_type),
+          field('family', $.transaction_code_family),
+          field('operation', $.transaction_code_operation),
+          field('category', $.transaction_code_category)
+        )
+      ),
+
     structured_communication: _ => prec(-1, token(/[01]/)),
     communication_small: _ => prec(-1, token(/[^\n]{43}/)),
     communication_short: _ => prec(-1, token(/[^\n]{53}/)),
