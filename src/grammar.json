@@ -1664,7 +1664,7 @@
         "type": "TOKEN",
         "content": {
           "type": "PATTERN",
-          "value": "\\d{2}"
+          "value": "\\d"
         }
       }
     },
@@ -1697,7 +1697,7 @@
         "type": "TOKEN",
         "content": {
           "type": "PATTERN",
-          "value": "\\d{2}"
+          "value": "\\d{3}"
         }
       }
     },

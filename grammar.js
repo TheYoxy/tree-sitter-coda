@@ -241,10 +241,10 @@ module.exports = grammar({
     next_file: _ => prec(-1, token(/[12]/)),
     reference_number: _ => prec(-1, token(/[^\n]{21}/)),
 
-    transaction_code_type: _ => prec(-1, token(/\d{2}/)),
+    transaction_code_type: _ => prec(-1, token(/\d/)),
     transaction_code_family: _ => prec(-1, token(/\d{2}/)),
     transaction_code_operation: _ => prec(-1, token(/\d{2}/)),
-    transaction_code_category: _ => prec(-1, token(/\d{2}/)),
+    transaction_code_category: _ => prec(-1, token(/\d{3}/)),
     transaction_code: $ =>
       prec(
         -1,

@@ -67,7 +67,7 @@ enum ts_symbol_identifiers {
   aux_sym_transaction_type_token1 = 37,
   aux_sym_next_file_token1 = 38,
   aux_sym_reference_number_token1 = 39,
-  aux_sym_transaction_code_type_token1 = 40,
+  aux_sym_transaction_code_family_token1 = 40,
   aux_sym_communication_small_token1 = 41,
   aux_sym_communication_short_token1 = 42,
   aux_sym_communication_token1 = 43,
@@ -171,7 +171,7 @@ static const char * const ts_symbol_names[] = {
   [aux_sym_transaction_type_token1] = "transaction_type_token1",
   [aux_sym_next_file_token1] = "next_file_token1",
   [aux_sym_reference_number_token1] = "reference_number_token1",
-  [aux_sym_transaction_code_type_token1] = "transaction_code_type_token1",
+  [aux_sym_transaction_code_family_token1] = "transaction_code_family_token1",
   [aux_sym_communication_small_token1] = "communication_small_token1",
   [aux_sym_communication_short_token1] = "communication_short_token1",
   [aux_sym_communication_token1] = "communication_token1",
@@ -275,7 +275,7 @@ static const TSSymbol ts_symbol_map[] = {
   [aux_sym_transaction_type_token1] = aux_sym_transaction_type_token1,
   [aux_sym_next_file_token1] = aux_sym_next_file_token1,
   [aux_sym_reference_number_token1] = aux_sym_reference_number_token1,
-  [aux_sym_transaction_code_type_token1] = aux_sym_transaction_code_type_token1,
+  [aux_sym_transaction_code_family_token1] = aux_sym_transaction_code_family_token1,
   [aux_sym_communication_small_token1] = aux_sym_communication_small_token1,
   [aux_sym_communication_short_token1] = aux_sym_communication_short_token1,
   [aux_sym_communication_token1] = aux_sym_communication_token1,
@@ -499,7 +499,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = false,
   },
-  [aux_sym_transaction_code_type_token1] = {
+  [aux_sym_transaction_code_family_token1] = {
     .visible = false,
     .named = false,
   },
@@ -1265,7 +1265,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 2:
       if (lookahead == '\n') ADVANCE(794);
       if (lookahead == ' ') ADVANCE(252);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(268);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(818);
       END_STATE();
     case 3:
       if (lookahead == '\n') ADVANCE(794);
@@ -1279,7 +1279,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 5:
       if (lookahead == '\n') ADVANCE(794);
-      if (lookahead == ' ') ADVANCE(45);
+      if (lookahead == ' ') ADVANCE(46);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(302);
       END_STATE();
     case 6:
@@ -1290,19 +1290,19 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 7:
       if (lookahead == '\n') ADVANCE(794);
       if (lookahead == ' ') ADVANCE(113);
-      if (lookahead == '0') ADVANCE(265);
-      if (lookahead == '1' ||
-          lookahead == '2') ADVANCE(831);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(272);
       END_STATE();
     case 8:
       if (lookahead == '\n') ADVANCE(794);
       if (lookahead == ' ') ADVANCE(132);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(289);
+      if (lookahead == '0') ADVANCE(265);
+      if (lookahead == '1' ||
+          lookahead == '2') ADVANCE(831);
       END_STATE();
     case 9:
       if (lookahead == '\n') ADVANCE(794);
       if (lookahead == ' ') ADVANCE(166);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(818);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(289);
       END_STATE();
     case 10:
       if (lookahead == '\n') ADVANCE(794);
@@ -1400,10 +1400,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == ' ') ADVANCE(804);
       END_STATE();
     case 33:
-      if (lookahead == ' ') ADVANCE(802);
+      if (lookahead == ' ') ADVANCE(808);
       END_STATE();
     case 34:
-      if (lookahead == ' ') ADVANCE(808);
+      if (lookahead == ' ') ADVANCE(802);
       END_STATE();
     case 35:
       if (lookahead == ' ') ADVANCE(807);
@@ -1478,7 +1478,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == ' ') ADVANCE(44);
       END_STATE();
     case 55:
-      if (lookahead == ' ') ADVANCE(46);
+      if (lookahead == ' ') ADVANCE(45);
       END_STATE();
     case 56:
       if (lookahead == ' ') ADVANCE(47);
@@ -2150,19 +2150,19 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '0') ADVANCE(266);
       END_STATE();
     case 268:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(834);
-      END_STATE();
-    case 269:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(820);
       END_STATE();
-    case 270:
+    case 269:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(814);
       END_STATE();
-    case 271:
+    case 270:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(813);
       END_STATE();
-    case 272:
+    case 271:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(822);
+      END_STATE();
+    case 272:
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(834);
       END_STATE();
     case 273:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(821);
@@ -2171,16 +2171,16 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(819);
       END_STATE();
     case 275:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(269);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(268);
       END_STATE();
     case 276:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(270);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(269);
       END_STATE();
     case 277:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(271);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(270);
       END_STATE();
     case 278:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(272);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(271);
       END_STATE();
     case 279:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(273);
@@ -4371,7 +4371,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == ' ') ADVANCE(807);
       END_STATE();
     case 834:
-      ACCEPT_TOKEN(aux_sym_transaction_code_type_token1);
+      ACCEPT_TOKEN(aux_sym_transaction_code_family_token1);
       END_STATE();
     case 835:
       ACCEPT_TOKEN(aux_sym_communication_small_token1);
@@ -4452,14 +4452,14 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [55] = {.lex_state = 23},
   [56] = {.lex_state = 6},
   [57] = {.lex_state = 10},
-  [58] = {.lex_state = 2},
+  [58] = {.lex_state = 7},
   [59] = {.lex_state = 10},
-  [60] = {.lex_state = 7},
+  [60] = {.lex_state = 8},
   [61] = {.lex_state = 5},
   [62] = {.lex_state = 6},
   [63] = {.lex_state = 10},
   [64] = {.lex_state = 20},
-  [65] = {.lex_state = 2},
+  [65] = {.lex_state = 7},
   [66] = {.lex_state = 25},
   [67] = {.lex_state = 10},
   [68] = {.lex_state = 10},
@@ -4468,7 +4468,7 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [71] = {.lex_state = 13},
   [72] = {.lex_state = 21},
   [73] = {.lex_state = 10},
-  [74] = {.lex_state = 2},
+  [74] = {.lex_state = 3},
   [75] = {.lex_state = 14},
   [76] = {.lex_state = 16},
   [77] = {.lex_state = 10},
@@ -4481,11 +4481,11 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [84] = {.lex_state = 16},
   [85] = {.lex_state = 6},
   [86] = {.lex_state = 10},
-  [87] = {.lex_state = 8},
+  [87] = {.lex_state = 9},
   [88] = {.lex_state = 10},
   [89] = {.lex_state = 3},
   [90] = {.lex_state = 18},
-  [91] = {.lex_state = 9},
+  [91] = {.lex_state = 2},
   [92] = {.lex_state = 18},
   [93] = {.lex_state = 10},
   [94] = {.lex_state = 10},
@@ -4503,15 +4503,15 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [106] = {.lex_state = 1},
   [107] = {.lex_state = 21},
   [108] = {.lex_state = 14},
-  [109] = {.lex_state = 7},
-  [110] = {.lex_state = 2},
+  [109] = {.lex_state = 8},
+  [110] = {.lex_state = 3},
   [111] = {.lex_state = 22},
   [112] = {.lex_state = 7},
   [113] = {.lex_state = 7},
   [114] = {.lex_state = 16},
   [115] = {.lex_state = 21},
   [116] = {.lex_state = 1},
-  [117] = {.lex_state = 2},
+  [117] = {.lex_state = 7},
   [118] = {.lex_state = 10},
   [119] = {.lex_state = 10},
   [120] = {.lex_state = 10},
@@ -4533,7 +4533,7 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [136] = {.lex_state = 18},
   [137] = {.lex_state = 1},
   [138] = {.lex_state = 1},
-  [139] = {.lex_state = 9},
+  [139] = {.lex_state = 2},
   [140] = {.lex_state = 10},
   [141] = {.lex_state = 18},
   [142] = {.lex_state = 10},
@@ -4543,8 +4543,8 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [146] = {.lex_state = 6},
   [147] = {.lex_state = 1},
   [148] = {.lex_state = 792},
-  [149] = {.lex_state = 2},
-  [150] = {.lex_state = 7},
+  [149] = {.lex_state = 7},
+  [150] = {.lex_state = 8},
   [151] = {.lex_state = 20},
   [152] = {.lex_state = 21},
   [153] = {.lex_state = 9},
@@ -4558,7 +4558,7 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [161] = {.lex_state = 17},
   [162] = {.lex_state = 3},
   [163] = {.lex_state = 24},
-  [164] = {.lex_state = 7},
+  [164] = {.lex_state = 8},
   [165] = {.lex_state = 0},
   [166] = {.lex_state = 0},
   [167] = {.lex_state = 0},
@@ -4716,7 +4716,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(54), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_numeric1_token1,
     STATE(58), 1,
       sym_transaction_code_type,
     STATE(59), 1,
@@ -4734,7 +4734,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(54), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_numeric1_token1,
     STATE(58), 1,
       sym_transaction_code_type,
     STATE(77), 1,
@@ -5083,7 +5083,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(124), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_transaction_code_family_token1,
     STATE(65), 1,
       sym_transaction_code_family,
   [650] = 3,
@@ -5131,7 +5131,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(136), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_transaction_code_family_token1,
     STATE(74), 1,
       sym_transaction_code_operation,
   [718] = 3,
@@ -5194,7 +5194,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(148), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_seq_number3_token1,
     STATE(120), 1,
       sym_transaction_code_category,
   [808] = 3,
@@ -5422,7 +5422,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(200), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_seq_number3_token1,
   [1129] = 2,
     ACTIONS(3), 1,
       anon_sym_LF,
@@ -5457,7 +5457,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(212), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_transaction_code_family_token1,
   [1178] = 2,
     ACTIONS(3), 1,
       anon_sym_LF,
@@ -5617,7 +5617,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(276), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_transaction_code_family_token1,
   [1402] = 2,
     ACTIONS(3), 1,
       anon_sym_LF,
@@ -5647,7 +5647,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(214), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_numeric1_token1,
   [1444] = 2,
     ACTIONS(3), 1,
       anon_sym_LF,
@@ -5672,7 +5672,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LF,
     ACTIONS(76), 1,
-      aux_sym_transaction_code_type_token1,
+      aux_sym_numeric1_token1,
   [1479] = 2,
     ACTIONS(3), 1,
       anon_sym_LF,
