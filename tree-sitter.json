@@ -7,10 +7,12 @@
       "title": "Coda",
       "scope": "source.coda",
       "file-types": [
-        "cod"
+        "cod",
+        "coda"
       ],
-      "injection-regex": "^cod$",
-      "class-name": "TreeSitterCoda"
+      "injection-regex": "^coda?$",
+      "class-name": "TreeSitterCoda",
+      "highlights": "queries/coda/highlights.scm"
     }
   ],
   "metadata": {
@@ -21,7 +23,7 @@
       {
         "name": "Floryan Simar",
         "email": "floryan.simar@endevops.be",
-        "url": "https://theyoxy.be/"
+        "url": "https://endevops.be/"
       }
     ],
     "links": {

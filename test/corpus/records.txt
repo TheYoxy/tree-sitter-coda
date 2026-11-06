@@ -1,0 +1,315 @@
+==================
+Example file
+==================
+0000001012330005        00000000  xxxxxxxxxxxxxxxxxxxxxxxxxxBBBBBBBB   00000000000 00000                                       2
+12001BE00000000000000                  EUR0000000002794070301222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx001
+21000300000000000000000000000  0000000000000000000000000000000xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000 0
+2200030000                                                     NONREF                                                        0 1
+31000300010000000000000000000  035370000xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx            0 1
+31000300020000000000000000000  035370000xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx            0 1
+830000000000000000000000000000000000000001111100000000000000000                                                                0
+9               000000000000000000000000000000000000                                                                           1
+
+---
+
+(source_file
+  (header_record
+    (record_type)
+    (zeros)
+    (date)
+    (seq_number3)
+    (application_code)
+    (duplication_flag)
+    (blank)
+    (file_reference)
+    (name)
+    (bic)
+    (account_holder_id)
+    (blank)
+    (numeric5)
+    (transaction_reference)
+    (related_reference)
+    (blank)
+    (version_code))
+  (old_balance_record
+    (record_type)
+    (account_structure)
+    (seq_number3)
+    (account_number)
+    (sign)
+    (amount)
+    (date)
+    (name)
+    (customer_reference)
+    (seq_number3))
+  (transaction_record_part1
+    (record_type)
+    (transaction_subtype)
+    (seq_number4)
+    (detail_number)
+    (reference_number)
+    (sign)
+    (amount)
+    (date)
+    (transaction_code
+      (transaction_code_type)
+      (transaction_code_family)
+      (transaction_code_operation)
+      (transaction_code_category))
+    (unstructured_communication_flag)
+    (communication_short)
+    (date)
+    (numeric3)
+    (numeric1)
+    (next_code)
+    (blank)
+    (next_data_record))
+  (transaction_record_part2
+    (record_type)
+    (transaction_subtype)
+    (seq_number4)
+    (detail_number)
+    (communication_short)
+    (customer_reference)
+    (bic)
+    (blank)
+    (transaction_type)
+    (iso_reason)
+    (category_purpose)
+    (purpose)
+    (next_code)
+    (blank)
+    (next_data_record))
+  (information_record_part1
+    (record_type)
+    (information_subtype)
+    (seq_number4)
+    (detail_number)
+    (reference_number)
+    (transaction_code
+      (transaction_code_type)
+      (transaction_code_family)
+      (transaction_code_operation)
+      (transaction_code_category))
+    (unstructured_communication_flag)
+    (communication)
+    (blank)
+    (next_code)
+    (blank)
+    (next_data_record))
+  (information_record_part1
+    (record_type)
+    (information_subtype)
+    (seq_number4)
+    (detail_number)
+    (reference_number)
+    (transaction_code
+      (transaction_code_type)
+      (transaction_code_family)
+      (transaction_code_operation)
+      (transaction_code_category))
+    (unstructured_communication_flag)
+    (communication)
+    (blank)
+    (next_code)
+    (blank)
+    (next_data_record))
+  (new_balance_record
+    (record_type)
+    (seq_number3)
+    (account_number)
+    (sign)
+    (amount)
+    (date)
+    (blank)
+    (next_data_record))
+  (trailer_record
+    (record_type)
+    (blank)
+    (numeric6)
+    (numeric15)
+    (numeric15)
+    (blank)
+    (next_file)))
+
+==================
+Structured movement 113
+==================
+2100010000REF                  10000000000000002401010101010011130000000000000000000000000000000000000000X         24010200001 1
+2200010000X               000000000000000000000000000X  0000000CUST                               BIC                        0 1
+2300010000ACC                                  NAME                               00000                                      0 1
+
+---
+
+(source_file
+  (movement_113
+    (movement_part1_113
+      (record_type)
+      (transaction_subtype)
+      (seq_number4)
+      (detail_number)
+      (reference_number)
+      (sign)
+      (amount)
+      (date)
+      (transaction_code
+        (transaction_code_type)
+        (transaction_code_family)
+        (transaction_code_operation)
+        (transaction_code_category))
+      (structured_communication_flag)
+      (structured_communication_type)
+      (masked_pan)
+      (card_scheme)
+      (terminal_number)
+      (sequence_number)
+      (transaction_date)
+      (transaction_hour)
+      (transaction_type)
+      (terminal_identification)
+      (date)
+      (numeric3)
+      (numeric1)
+      (next_code)
+      (blank)
+      (next_data_record))
+    (movement_part2_113
+      (record_type)
+      (transaction_subtype)
+      (seq_number4)
+      (detail_number)
+      (terminal_identification)
+      (original_amount)
+      (rate)
+      (currency)
+      (volume)
+      (product_code)
+      (customer_reference)
+      (bic)
+      (blank)
+      (transaction_type)
+      (iso_reason)
+      (category_purpose)
+      (purpose)
+      (next_code)
+      (blank)
+      (next_data_record))
+    (movement_part3_113
+      (record_type)
+      (transaction_subtype)
+      (seq_number4)
+      (detail_number)
+      (account_number)
+      (customer_reference)
+      (unit_price)
+      (unused)
+      (next_code)
+      (blank)
+      (next_data_record))))
+
+==================
+Structured information 001
+==================
+3100010000REF                  010101001001X                                                                                 1 1
+3200010000X                                  X                                  X                                            1 1
+
+---
+
+(source_file
+  (information_001
+    (information_part1_001
+      (record_type)
+      (information_subtype)
+      (seq_number4)
+      (detail_number)
+      (reference_number)
+      (transaction_code
+        (transaction_code_type)
+        (transaction_code_family)
+        (transaction_code_operation)
+        (transaction_code_category))
+      (structured_communication_flag)
+      (structured_communication_type)
+      (counterparty_name)
+      (blank)
+      (next_code)
+      (blank)
+      (next_data_record))
+    (information_part2_001
+      (record_type)
+      (information_subtype)
+      (seq_number4)
+      (detail_number)
+      (street)
+      (locality)
+      (identification_code)
+      (blank)
+      (next_code)
+      (blank)
+      (next_data_record))))
+
+==================
+Unknown structured movement type
+==================
+2100010000REF                  1000000000000000240101010101001999000000000000                                      24010200001 1
+
+---
+
+(source_file
+  (movement_structured_unknown
+    (record_type)
+    (transaction_subtype)
+    (seq_number4)
+    (detail_number)
+    (reference_number)
+    (sign)
+    (amount)
+    (date)
+    (transaction_code
+      (transaction_code_type)
+      (transaction_code_family)
+      (transaction_code_operation)
+      (transaction_code_category))
+    (structured_communication_flag)
+    (structured_communication_type)
+    (communication_short_50)
+    (date)
+    (numeric3)
+    (numeric1)
+    (next_code)
+    (blank)
+    (next_data_record)))
+
+==================
+File without trailing newline
+==================
+2100010000REF                  1000000000000000240101010101001101000000000000                                      24010200001 1
+
+---
+
+(source_file
+  (movement_101
+    (movement_part1_101
+      (record_type)
+      (transaction_subtype)
+      (seq_number4)
+      (detail_number)
+      (reference_number)
+      (sign)
+      (amount)
+      (date)
+      (transaction_code
+        (transaction_code_type)
+        (transaction_code_family)
+        (transaction_code_operation)
+        (transaction_code_category))
+      (structured_communication_flag)
+      (structured_communication_type)
+      (structured_reference)
+      (unused)
+      (date)
+      (numeric3)
+      (numeric1)
+      (next_code)
+      (blank)
+      (next_data_record))))

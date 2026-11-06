@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "commonjs",
   "description": "CODA (Coded Statement of Account)",
-  "repository": "https://github.com/tree-sitter/tree-sitter-coda",
+  "repository": "https://github.com/TheYoxy/tree-sitter-coda",
   "license": "MIT",
   "author": {
     "name": "Floryan Simar",
@@ -50,6 +50,7 @@
     "format": "biome format . --write",
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
-    "test": "node --test bindings/node/*_test.js"
+    "test": "node --test bindings/node/*_test.js",
+    "highlights": "node scripts/gen-highlights.js"
   }
 }
